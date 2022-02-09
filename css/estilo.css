@@ -1,0 +1,65 @@
+#acordeon{
+    font-size: 14px; 
+    width:700px;
+}
+
+label, tr {
+    font-size: 14px; 
+    font-family: arial;
+    color: #000000;
+    
+}
+
+h1{
+	color:black;
+}
+
+button, input[type="button"] {
+    font-size: 20px; 
+    font-family: arial;
+    border-radius: 5px;
+	text-align:center;
+}
+
+table {
+    background-color: #FFFFFF;
+    margin: auto auto;
+    border-radius: 10px;
+    padding: 5px;
+}
+    
+body{
+    background-color: #747171;
+	background-size:cover;
+}
+
+#login{
+    margin: 10px 0 10px 0;
+}
+
+#senha{
+    margin: 3px 0 10px 0;
+}
+
+#nascimento{
+    cursor: pointer;
+}
+
+#total{
+    color: #ff0000;
+    background-color: #cacbf7;
+    font-weight: bold;
+}
+
+#dataHJ{
+    color: #000000;
+}
+
+.contador{
+    font-size: 7px;
+    color: #ff0000;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    padding: 2px;
+    background-color: #b3b3b3;
+}

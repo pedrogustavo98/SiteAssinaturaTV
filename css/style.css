@@ -1,0 +1,51 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+body {
+	display:flex;
+	background-repeat:no-repeat;
+	width:100%;
+	background-size: cover;
+	align-items:center;
+	justify-content:center;
+}
+
+header{
+	text-align:center;
+	width: 400px;
+	height:200px;
+	background: white;
+	border-radius: 10px 10px 10px 10px;
+}
+
+#texto_caixa{
+	margin-top:1%;
+}
+
+.button{
+	display:flex;
+	text-decoration:none;
+	background:red;
+	cursor:pointer;
+	padding:10px 10px;
+	color:white;
+	text-transform:uppercase;
+	display:inline-block;
+	margin-top:1%;
+	border-radius:10px 10px 10px 10px;
+}
+
+#formulario_fundo{
+	width:700px;
+	height:inherit;
+	border-radius: 10px 10px 10px 10px;
+	background:white;
+	padding:10px;
+}
+
+#botao_salvar{
+	margin:auto;
+}

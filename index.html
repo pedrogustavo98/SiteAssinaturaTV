@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Goaaal!</title>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="css/style.css">
+			<script src="javascript/arquivo.js"></script>
+  </head>
+  <body background="imagens/painel.jpg">
+  <div id="formulario_fundo">
+		<h1>Formulário de cadastro</h1>
+	  <form name="formulario" onsubmit="return validar()">
+		Nome:
+		  <input id="name" name="nome" type="text">
+		  <br>
+		Apelido:
+		  <input id="nickname" name="apelido" type="text" maxlength="20">
+		  <br>
+		Data de nascimento:
+		  <input id="day" name="day" type="text" maxlength="2">/
+		  <input id="month" name="month" type="text" maxlength="2">/
+		  <input id="year" name="year" type="text" maxlength="4">
+		  <br>
+		CPF:
+		  <input id="cpf" name="cpf" type="text" maxlength="14">
+		  <br>
+		Time do coração:
+		  <select id="team_id" maxlength="20">
+			<option id="100">Selecione</option>
+			<option id="1">Corinthians</option>
+			<option id="2">Santos</option>
+			<option id="3">São Paulo</option>
+		  </select>
+		  <br>
+		Esportes de interesse:<br>
+		 <input type="checkbox" name="sport" id="1">Futebol<br>
+		 <input type="checkbox" name="sport" id="2">Vôlei<br>
+		 <input type="checkbox" name="sport" id="3">Basquete<br>
+		 <input type="checkbox" name="sport" id="4">Futsal<br>
+		 <input type="checkbox" name="sport" id="5">Automobilismo<br>
+		 <input type="checkbox" name="sport" id="6">Artes Marciais<br>
+		 <input type="checkbox" name="sport" id="7">Natação<br>
+		 <div>
+			<a href="formulario.html"><button class="button" onclick="validar()">Enviar</button></a>
+		</div>
+		</form>
+	</div>
+  </body>
+</html>

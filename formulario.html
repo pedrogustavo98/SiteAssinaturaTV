@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/estilo.css">
+  <script src="javascript/valida_form.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css " rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <script>
+    $(function () {
+      $("#acordeon").accordion({
+        active: false,
+        collapsible: true
+      });
+    });
+  </script>
+  <title>Formulário para Assinates</title>
+</head>
+
+<body background="imagens/painel.jpg">
+
+  <form name="form" id="form" onsubmit="Assinar()">
+    <table>
+        <tr>
+          <th colspan=2><h1>Cadastro de Assinantes - Goaaal TV!</h1></th>
+          <th class="contador">Contador de Segundo: 
+            <p id="dataHJ" disabled></p>    
+          </th>
+      </tr>
+      <tr>
+        <td>
+          <label for="nome">Nome:</label>
+        </td>
+        <td>
+          <input type="text" name="nome" id="nome" autocomplete="off" minlength="10" maxlength="80"
+            onkeydown="apenasLetras()" placeholder="Nome Completo ....">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="cpf">CPF:</label>
+        </td>
+        <td>
+          <input type="text" name="cpf" id="cpf" autocomplete="off" required onkeyup="mascCPF()" 
+          maxlength="14" placeholder="CPF ...">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="email">Email:</label>
+        </td>
+        <td>
+          <input type="email" name="email" id="email" autocomplete="off" maxlength="80" 
+          placeholder="email@email.com ...">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="tel">Celular:</label>
+        </td>
+        <td>
+          <input type="text" name="cel" id="cel" autocomplete="off" placeholder="(00) 00000-0000" 
+          maxlength="15" onkeyup="boxCelular()">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="nascimento">Data Nascimento</label>
+        </td>
+        <td>
+          <input type="date" name="nascimento" id="nascimento" required autocomplete="off" 
+          onkeydown="boxDate()" onclick="boxDate()">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="salario">Salário:</label>
+        </td>
+        <td>
+          <input type="text" name="salario" id="salario" autocomplete="off" style="text-align: right;" 
+          onkeyup="boxSalario()" placeholder="R$ 0000,00" maxlength="18">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="sexo">Sexo:</label>
+        </td>
+        <td>
+          <input type="radio" name="sexo" id="sexoM" value="Masculino"  
+          onclick="checkMF()" onkeydown="checkMF()">Masculino
+
+          <input type="radio" name="sexo" id="sexoF" value="Feminino" 
+          onclick="checkMF()" onkeydown="checkMF()">Feminino
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="futebol">Time de Futebol:</label>
+        </td>
+        <td>
+          <select name="times" id="select" onchange="checkSelect()" 
+          onclick="checkSelect()">
+            <option class="time" value="0" selected></option>
+            <option class="time" value="1" >Corinthians</option>
+            <option class="time" value="2">Palmeiras</option>
+            <option class="time" value="3">Santos</option>
+            <option class="time" value="4">São Paulo</option>
+            <option class="time" value="100">Nenhuma das Opções</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="planos">Planos:</label>
+        </td>
+        <td>
+          <input type="radio" name="planos" id="planos1" value="Mensal" 
+          onclick="totaliza()">Mensal - R$ 85,00 <br>
+
+          <input type="radio" name="planos" id="planos2" value="Quadrimestral" 
+          onclick="totaliza()">Quadrimestral - R$ 300,00 <br>
+
+          <input type="radio" name="planos" id="planos3" value="Anual" 
+          onclick="totaliza()">Anual - R$ 600,00
+        </td>
+      </tr>
+
+      <tr>
+        <td>Canais Incluídos</td>
+        <td>
+          <div id="acordeon">
+            <h3>Plano Mensal</h3>
+            <div>
+              <ul>
+                <li>ESPN</li>
+                <li>Fox Sports</li>
+                <li>Sport TV</li>
+              </ul>
+            </div>
+            <h3>Plano Quadrimestral</h3>
+            <div>
+              <ul>
+                <li>ESPN</li>
+                <li>Fox Sports 2</li>
+                <li>Sport TV 2</li>
+              </ul>
+            </div>
+            <h3>Plano Anual</h3>
+            <div>
+              <ul>
+                <li>ESPN 2</li>
+                <li>Fox Sports 2</li>
+                <li>Sport TV 2 e 3</li>
+              </ul>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="premiere">Premiere:</label>
+        </td>
+        <td>
+          <input type="radio" name="premiere" id="premiere1" value="Economico" 
+          onclick="totaliza()">Econômico - 12 x R$ 60,00<br>
+          <input type="radio" name="premiere" id="premiere2" value="Controle" 
+          onclick="totaliza()">Controle - Mensal R$ 80,00
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="total">Total (mensal):</label>
+        </td>
+        <td>
+          <input type="text" name="total" id="total" readonly style="text-align: right;">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="login">Para assinar, <br> informe Login e Senha:</label>
+        </td>
+        <td>
+          <input type="text" name="login" id="login" autocomplete="off" placeholder="Login (teste JSON: Usuario)"
+            maxlength="15" minlength="5" size=22> <br>
+          <input type="password" name="senha" id="senha" autocomplete="off" placeholder="Senha (teste JSON: Abc$123)"
+            maxlength="8" minlength="6" size=22>
+        </td>
+      </tr>
+
+      <tr>
+        <th>
+          <button type="button" onclick="validar_tudo()">Ok!</button>
+        </th>
+        <th>
+          <input type="submit" name="butassin" id="butassin" value="Assinar" disabled>
+        </th>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>
